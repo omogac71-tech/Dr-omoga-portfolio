@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Charles Owuor Omoga | Senior Lecturer, Alupe University</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f2f7fc;
+            color: #1e2e3e;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        /* header */
+        header {
+            background: #0d3b4c;      
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(8,40,50,0.2);
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .logo p {
+            font-size: 0.95rem;
+            color: #c9e2ef;
+            margin-top: 4px;
+        }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            padding: 5px 0;
+        }
+        nav a:hover {
+            border-bottom-color: #8fd6ff;
+            color: #e1f2fa;
+        }
+        /* hero */
+        .hero {
+            background: linear-gradient(140deg, #e1f0f7, #ffffff 80%);
+            padding: 60px 0 50px;
+            border-bottom: 1px solid #cae0ec;
+        }
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+        .hero-img {
+            flex: 0 0 200px;
+        }
+        /* profile photo styling - replace src with your image file */
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 18px 28px -12px #0a3a47;
+            background: #e1f0f7; /* fallback while image loads */
+            display: block;
+        }
+        .hero-text h2 {
+            font-size: 2.7rem;
+            color: #0d3b4c;
+            margin-bottom: 6px;
+        }
+        .hero-text .title {
+            font-size: 1.5rem;
+            color: #26648b;
+            margin-bottom: 18px;
+            font-weight: 350;
+        }
+        .hero-text .bio {
+            max-width: 680px;
+            font-size: 1.12rem;
+            color: #1f4662;
+            margin-bottom: 25px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: #0d3b4c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.25s;
+            border: 1px solid transparent;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #0d3b4c;
+            color: #0d3b4c;
+        }
+        .btn-outline:hover {
+            background: #0d3b4c;
+            color: white;
+        }
+        .btn:hover {
+            background: #175f78;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px -8px #0a3645;
+        }
+        .social-links {
+            margin-top: 28px;
+            display: flex;
+            gap: 25px;
+            font-size: 1.8rem;
+            color: #1b4b60;
+        }
+        .social-links a {
+            color: inherit;
+            transition: 0.15s;
+        }
+        .social-links a:hover {
+            color: #0d3b4c;
+            transform: scale(1.1);
+        }
+        /* sections */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #d4e6f0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            color: #0d3b4c;
+            margin-bottom: 45px;
+            position: relative;
+            font-weight: 500;
+        }
+        .section-title::after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: #327a94;
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            border-radius: 4px;
+        }
+        /* about grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0 20px;
+        }
+        .info-card {
+            background: white;
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px -10px rgba(10, 60, 80, 0.15);
+            border: 1px solid #cae0ec;
+        }
+        .info-card i {
+            font-size: 2.2rem;
+            color: #166b85;
+            margin-bottom: 20px;
+        }
+        .info-card h3 {
+            font-size: 1.6rem;
+            color: #0d3b4c;
+            margin-bottom: 18px;
+        }
+        .info-card p, .info-card li {
+            color: #2c4d64;
+        }
+        .info-card ul {
+            list-style: none;
+        }
+        .info-card li {
+            margin-bottom: 10px;
+        }
+        .info-card li strong {
+            width: 100px;
+            display: inline-block;
+            color: #0d3b4c;
+        }
+        .compact-list li {
+            font-size: 0.98rem;
+        }
+        /* publications */
+        .pub-item {
+            background: white;
+            border-radius: 24px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            border-left: 8px solid #0d3b4c;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.02);
+        }
+        .pub-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0d3b4c;
+            margin-bottom: 8px;
+        }
+        .pub-authors {
+            font-size: 1.05rem;
+            color: #2c5a74;
+            margin-bottom: 6px;
+        }
+        .pub-journal {
+            font-style: italic;
+            color: #496e86;
+            margin-bottom: 12px;
+        }
+        .pub-links a {
+            color: #0d3b4c;
+            font-weight: 500;
+            margin-right: 22px;
+            text-decoration: none;
+        }
+        .pub-links i {
+            margin-right: 5px;
+        }
+        .pub-links a:hover {
+            text-decoration: underline;
+        }
+        /* committees / lists compact */
+        .committees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 14px 22px;
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px #d4e2ed;
+        }
+        .committees-grid li {
+            margin-bottom: 9px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .committees-grid i {
+            color: #0d3b4c;
+            width: 22px;
+        }
+        .exp-item {
+            background: white;
+            border-radius: 24px;
+            padding: 24px 30px;
+            margin-bottom: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            align-items: flex-start;
+            box-shadow: 0 8px 20px #deecf3;
+        }
+        .exp-year {
+            background: #0d3b4c;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .exp-desc h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #0d3b4c;
+        }
+        .exp-desc p {
+            color: #2c5775;
+        }
+        /* Projects section cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 28px;
+            padding: 30px;
+            box-shadow: 0 15px 30px -10px rgba(13,59,76,0.15);
+            border: 1px solid #cde1ef;
+            transition: transform 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+        }
+        .project-card i {
+            font-size: 2.5rem;
+            color: #0d3b4c;
+            margin-bottom: 18px;
+        }
+        .project-card h3 {
+            font-size: 1.7rem;
+            color: #0d3b4c;
+            margin-bottom: 15px;
+        }
+        .project-card p {
+            color: #2b5777;
+            font-size: 1.05rem;
+        }
+        .project-tag {
+            display: inline-block;
+            background: #e1f0f7;
+            padding: 6px 20px;
+            border-radius: 40px;
+            color: #0d3b4c;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+        .contact-flex {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .contact-info {
+            flex: 1 1 280px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: white;
+            padding: 18px 24px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 14px #d0e2f0;
+        }
+        .contact-item i {
+            font-size: 1.8rem;
+            color: #0d3b4c;
+            width: 38px;
+        }
+        .contact-item span {
+            font-size: 1.12rem;
+        }
+        .contact-form {
+            flex: 2 1 400px;
+            background: white;
+            padding: 35px;
+            border-radius: 36px;
+            box-shadow: 0 18px 34px -10px #aac7db;
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 16px 22px;
+            border: 1px solid #c0d5e7;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: #f6fbfe;
+        }
+        textarea {
+            border-radius: 32px;
+            resize: vertical;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0d3b4c;
+            box-shadow: 0 0 0 4px rgba(13,59,76,0.08);
+        }
+        button {
+            background: #0d3b4c;
+            color: white;
+            border: none;
+            padding: 16px 38px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover {
+            background: #196479;
+            transform: scale(1.02);
+        }
+        footer {
+            background: #0b3140;
+            color: #b2d0e0;
+            text-align: center;
+            padding: 30px 0;
+        }
+        hr {
+            border: 1px solid #bdd8ec;
+            margin: 20px 0;
+        }
+        .mini-badge {
+            background: #e8f2fa;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        @media (max-width:700px){
+            .header-flex{flex-direction:column; gap:12px;}
+            nav ul{gap:1rem; flex-wrap: wrap; justify-content: center;}
+            .hero-text h2{font-size: 2.2rem;}
+            .section-title::after{left:50%; transform:translateX(-50%);}
+            .section-title{text-align: center;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>Charles Owuor Omoga</h1>
+            <p>PhD, M-KIM · Senior Lecturer, Alupe University</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- HERO (home) with actual graduation photo -->
+    <section id="home" class="hero">
+        <div class="container hero-flex">
+            <div class="hero-img">
+                <!-- Graduation photo of Dr. Charles Omoga -->
+                <!-- IMPORTANT: Save your image file (e.g., dr-omoga.jpg) in the same folder as this HTML file and update the src attribute accordingly -->
+                <img src="dr-omoga.jpg" alt="Dr. Charles Owuor Omoga" class="profile-photo">
+                <!-- If your image has a different name/path, change the src value above. Example: src="images/graduation-pic.jpg" -->
+            </div>
+            <div class="hero-text">
+                <h2>Dr. Charles Owuor Omoga</h2>
+                <div class="title">Ph.D. Business Information Systems · Senior Lecturer</div>
+                <p class="bio">Dedicated educator and researcher committed to fostering a stimulating learning environment and advancing information systems research. Over eight years of teaching experience at doctoral, masters and undergraduate levels. Chair, Department of Management Science at Alupe University.</p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn">Get in touch</a>
+                    <a href="#publications" class="btn btn-outline">Latest publications</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fas fa-graduation-cap"></i></a>   
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-researchgate"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT (personal, education, objectives, etc) -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Curriculum Vitae – Overview</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Personal</h3>
+                    <ul class="compact-list">
+                        <li><strong>Birth:</strong> 1st July 1971</li>
+                        <li><strong>Marital:</strong> Married</li>
+                        <li><strong>Address:</strong> Alupe University, P.O. Box 845-50400, Busia</li>
+                        <li><strong>Mobile:</strong> 0719571797</li>
+                        <li><strong>Email:</strong> Omogac71@Yahoo.Com</li>
+                        <li><strong>Current post:</strong> Senior Lecturer, Alupe University</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education</h3>
+                    <ul>
+                        <li><strong>PhD</strong> Business Info. Systems, JOOUST (2018)</li>
+                        <li><strong>MBA</strong> (MIS), Maseno Univ. (2012)</li>
+                        <li><strong>B.Ed (Science)</strong> Kampala Univ. (2010) – Upper second</li>
+                        <!-- P1 and KCSE entries removed as requested -->
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Objective</h3>
+                    <p>Commitment to fostering a stimulating learning environment and contributing to the advancement of information systems research.</p>
+                    <hr style="margin:15px 0;">
+                    <p><i class="fas fa-id-card"></i> <strong>M-KIM</strong> · Kenya Institute of Management</p>
+                </div>
+            </div>
+
+            <!-- administrative / committee highlights -->
+            <div style="margin-top: 30px; background: white; border-radius: 30px; padding: 30px;">
+                <h3 style="color:#0d3b4c; margin-bottom: 20px;"><i class="fas fa-tasks"></i> Administrative & committee responsibilities</h3>
+                <div class="committees-grid">
+                    <li><i class="fas fa-check-circle"></i> Chair, Dept. of Management Science, Dev. Studies & Comms (2018–date)</li>
+                    <li><i class="fas fa-check-circle"></i> Quality Assurance Champion – SBEHRD (2022–date)</li>
+                    <li><i class="fas fa-check-circle"></i> Risk Manager (Management Science dept) 2020–date</li>
+                    <li><i class="fas fa-check-circle"></i> School exams & timetabling coordinator (2020)</li>
+                    <li><i class="fas fa-check-circle"></i> Chair – Ad-Hoc Evaluation Committee (tenders, 2025)</li>
+                    <li><i class="fas fa-check-circle"></i> Champion – productivity mandate PC 20th cycle 2023/24</li>
+                    <li><i class="fas fa-check-circle"></i> Champion – digitization (PC 20th cycle) </li>
+                    <li><i class="fas fa-check-circle"></i> E-Learning implementation committee</li>
+                    <li><i class="fas fa-check-circle"></i> Champion – Information Security Management System</li>
+                    <li><i class="fas fa-check-circle"></i> ODEL policy draft committee</li>
+                    <li><i class="fas fa-check-circle"></i> ICT policy draft committee</li>
+                    <li><i class="fas fa-check-circle"></i> MOU committee KNCCI & Agric. Training Centre</li>
+                    <li><i class="fas fa-check-circle"></i> Elections Petition Panel member</li>
+                    <li><i class="fas fa-check-circle"></i> Tender Evaluation / Opening committee</li>
+                    <li><i class="fas fa-check-circle"></i> Shortlisting panel (Tutorial Fellows/Asst Lecturers)</li>
+                </div>
+                <!-- reviewer/examiner -->
+                <div style="margin-top: 30px; background: #e6f2f9; border-radius: 30px; padding: 20px 30px;">
+                    <h4 style="color:#0d3b4c;"><i class="fas fa-star"></i> Research reviewer / examiner</h4>
+                    <p>✔ Reviewer – Alupe University Research Grant Proposal (2020–21, 2023/24) <br>
+                    ✔ External thesis examiner – Kisii University, Dept. of Information Science (2019)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION (with corrected names and abbreviations) -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Initiatives</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Bachelor of Business Information Technology (BBIT)</h3>
+                    <p>Developed the undergraduate curriculum for the BBIT program at Alupe University – shaping the next generation of information technology and systems professionals.</p>
+                    <span class="project-tag">Curriculum design · 2021–2022</span>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Bachelor of Business Analytics and Information Systems Management (BBAISM)</h3>
+                    <p>Led the development of the new BBAISM degree programme, integrating data analytics, information systems and management science.</p>
+                    <span class="project-tag">New programme · 2023</span>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Master of Business Information Systems (MBIS)</h3>
+                    <p>Designed the postgraduate curriculum to equip students with advanced skills in information systems strategy and research.</p>
+                    <span class="project-tag">Postgraduate curriculum · 2024</span>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Alupe University Sacco Website</h3>
+                    <p>Currently developing a dynamic, secure website for the Alupe University Savings and Credit Cooperative (Sacco) to enhance member services.</p>
+                    <span class="project-tag">Web development · ongoing 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS (exactly as CV) -->
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="pub-item"><div class="pub-title">Omoga, C. O., Ongaga, P. O. & Kosgei, N. (2025). Entrepreneurial Performance of Small and Medium Enterprises and Digital Transformation in Busia County, Kenya.</div><div class="pub-journal">East African Journal of Business and Economics, 8(1), 485-494. https://doi.org/10.37284/eajbe.8.1.3111</div></div>
+            <div class="pub-item"><div class="pub-title">Busolo,H, Jerop,C and Omoga,C (2024) An Evaluation of Perceived Quality Effect on the Choice of Poultry Feeds by Farmers in Nakuru West Sub-County, Nakuru County, Kenya.</div><div class="pub-journal">International Journal of Research and innovation in Social Sciences. Vol VIII, Issue 5</div></div>
+            <div class="pub-item"><div class="pub-title">Omoga, C (2023). Perceived Benefits of Artificial Intelligence Integration within Management Information System for Decision-Making Processes in the context of County Governments in Kenya.</div><div class="pub-journal">International Advanced Research Journal in Science, Engineering and Technology. Vol. 10, Issue 11.</div></div>
+            <div class="pub-item"><div class="pub-title">Omoga, C (2023) Assessing the Extent of Integration of Artificial Intelligence Technology within Management Information Systems: Case of County Governments in Kenya.</div><div class="pub-journal">International Journal of Innovative Research in Electrical, Electronics, Instrumentation and Control Engineering.Vol. 11, Issue 10.</div></div>
+            <div class="pub-item"><div class="pub-title">Omoga, C (2023) Challenges in Implementing Artificial Intelligence within Management Information Systems: Case of County Governments in Kenya.</div><div class="pub-journal">International Journal of Advanced Research in Computer and Communication Engineering.Vol. 12, Issue 9.</div></div>
+            <div class="pub-item"><div class="pub-title">Omoga ,C(2019) Challenges in E-Marketing Adoption Among Small Businesses in the Hospitality Industry in Kenya.</div><div class="pub-journal">International Journal of Advanced Research in Computer and Communication Engineering Vol. 8, Issue 5.</div></div>
+            <div class="pub-item"><div class="pub-title">Omoga,C(2019) Integrated E-Marketing Adoption Model for Small Businesses.</div><div class="pub-journal">International Journal of Advanced Research in Computer and Communication Engineering Vol. 8, Issue 5.</div></div>
+            <div class="pub-item"><div class="pub-title">Omoga, C, Liyala, S and Raburu, G (2018) Small Sized Businesses and E-marketing adoption: Towards a Conceptual Model.</div><div class="pub-journal">International Journal of Scientific Research Engineering & Technology. Issue 4</div></div>
+            <div class="pub-item"><div class="pub-title">Omoga, C Raburu and Liyala S: E-Marketing Adoption among Small Businesses in the Hospitality Industry in Kenya: The Institution Theory Perspective.</div><div class="pub-journal">International Journal of Advanced Research in Computer and Communication Engineering.Vol. 7, Issue 6</div></div>
+            <div class="pub-item"><div class="pub-title">Onyango, F., Dr. Momanyi, G., Omoga, M., & Omoga, C.O. (2015). Head teachers’ Computer Competency and Computerized Management Systems Adoption in Public Primary Schools, Kadibo Division, Kenya.</div><div class="pub-journal">(Journal not specified)</div></div>
+        </div>
+    </section>
+
+    <!-- WORK EXPERIENCE & TEACHING -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Work experience & teaching</h2>
+            <!-- academic experience -->
+            <div class="exp-item"><span class="exp-year">2025–date</span><div class="exp-desc"><h3>Senior Lecturer (Business Information Systems)</h3><p>Alupe University</p></div></div>
+            <div class="exp-item"><span class="exp-year">2019–2024</span><div class="exp-desc"><h3>Lecturer, Business Information Systems</h3><p>Alupe University</p></div></div>
+            <div class="exp-item"><span class="exp-year">2017–2019</span><div class="exp-desc"><h3>Tutorial Fellow, Business Information Systems</h3><p>Alupe University</p></div></div>
+            <div class="exp-item"><span class="exp-year">2013–2017</span><div class="exp-desc"><h3>Part-time lecturer</h3><p>JOOUST – Busia Learning Centre</p></div></div>
+            <div class="exp-item"><span class="exp-year">2015–2017</span><div class="exp-desc"><h3>Teacher (full time) TSC – Nyamninia School</h3><p></p></div></div>
+            <div class="exp-item"><span class="exp-year">2014–2015</span><div class="exp-desc"><h3>Part time lecturer, Mount Kenya University (Kakamega)</h3><p></p></div></div>
+            <div class="exp-item"><span class="exp-year">2011–2012</span><div class="exp-desc"><h3>Part time (Ramogi College of Education – holiday)</h3><p></p></div></div>
+            <div class="exp-item"><span class="exp-year">2010</span><div class="exp-desc"><h3>Comptia College, Kisumu (part time)</h3><p></p></div></div>
+            <div class="exp-item"><span class="exp-year">2009–2010</span><div class="exp-desc"><h3>Rongo School (full time TSC) & Nyanza Christian TTC part time</h3><p></p></div></div>
+            <div class="exp-item"><span class="exp-year">2000–2008</span><div class="exp-desc"><h3>Withur School (TSC)</h3><p></p></div></div>
+            <div class="exp-item"><span class="exp-year">1992–1999</span><div class="exp-desc"><h3>Omore School (TSC)</h3><p></p></div></div>
+            
+            <h3 style="margin: 40px 0 20px; color:#0d3b4c;">Professional development & training</h3>
+            <div class="info-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+                <div class="info-card">✔ Commonwealth blended learning (Moodle) Sep 2023</div>
+                <div class="info-card">✔ STI Mainstreaming Sensitization (Aug 2022)</div>
+                <div class="info-card">✔ Digital Education for Universities (Digital Skills-Kenya 2021)</div>
+                <div class="info-card">✔ State Corporations Information Management Module (2019)</div>
+                <div class="info-card">✔ CCNA-1 (Cisco) – KCA University, Kisumu</div>
+                <div class="info-card">✔ HIV Behaviour Change, Participatory Sanitation, SBD training</div>
+            </div>
+
+            <!-- skills, community, interests -->
+            <div style="background: white; border-radius: 30px; padding: 30px; margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:30px;">
+                    <div>
+                        <h4><i class="fas fa-cogs"></i> Skills & competencies</h4>
+                        <ul style="list-style: none; margin-top: 16px;">
+                            <li>✔ Extensive IT & computing teaching</li>
+                            <li>✔ Information systems research (doctoral level)</li>
+                            <li>✔ Fluent English & Kiswahili · analytical, leadership</li>
+                            <li>✔ Strong writing & oral communication</li>
+                            <li>✔ Team player</li>
+                            <li>✔ Hobbies: Basketball, Computing, religious activities</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-hand-holding-heart"></i> Community service</h4>
+                        <p><strong>2024–date:</strong> PATRON – Ulumbi Community Welfare Group</p>
+                        <h4 style="margin-top:25px;"><i class="fas fa-tree"></i> Interests</h4>
+                        <p>Information Technology · Religious Activities · Peace & Conflict Resolution · Environmental Conservation</p>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-user-friends"></i> Referees</h4>
+                        <p><strong>Prof. Annerty Makokha</strong><br>Dean SBEHRD, Alupe University</p>
+                        <p><strong>Prof. Silvance Abeka</strong><br>Dean, Informatics, JOOUST · 0710581009</p>
+                        <p><strong>Prof. Samuel Liyala</strong><br>Chair, Information Systems, JOOUST · 0718813320</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <div class="contact-item"><i class="fas fa-map-pin"></i><span>Alupe University, P.O. Box 845-50400, Busia, Kenya</span></div>
+                    <div class="contact-item"><i class="fas fa-phone-alt"></i><span>0719571797</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><span>Omogac71@Yahoo.Com</span></div>
+                    <div class="contact-item"><i class="fas fa-calendar"></i><span>Born 1st July 1971 · Married</span></div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group"><input type="text" placeholder="Your name" required></div>
+                        <div class="form-group"><input type="email" placeholder="Email address" required></div>
+                        <div class="form-group"><input type="text" placeholder="Subject"></div>
+                        <div class="form-group"><textarea rows="5" placeholder="Message / collaboration inquiry..."></textarea></div>
+                        <button type="submit"><i class="fas fa-paper-plane" style="margin-right:8px;"></i>Send message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Dr. Charles Owuor Omoga · Ph.D., M-KIM · Senior Lecturer, Alupe University</p>
+        <p style="margin-top:12px"><i class="fas fa-heart" style="color:#b0d9ff;"></i> Commitment to excellence in information systems research</p>
+    </div>
+</footer>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+        });
+    });
+</script>
+</body>
+</html>
